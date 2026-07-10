@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background-luxury: #0F0F0F;
+  --color-secondary-luxury: #1B1B1B;
+  --color-accent-luxury: #D4A373;
+  --color-text-luxury: #ffffff;
+  --color-gray-luxury: #CFCFCF;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+}
+
+:root {
+  --background: #0F0F0F;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: #0F0F0F;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1B1B1B;
+  border-radius: 10px;
+  border: 1px solid #D4A373;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4A373;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(27, 27, 27, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 163, 115, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(27, 27, 27, 0.85);
+  border-color: rgba(212, 163, 115, 0.35);
+  box-shadow: 0 12px 40px 0 rgba(212, 163, 115, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Luxury Soft Glow */
+.gold-glow {
+  text-shadow: 0 0 15px rgba(212, 163, 115, 0.4);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 20px rgba(212, 163, 115, 0.15);
+}
+
+/* Button Gradients */
+.btn-gold {
+  background: linear-gradient(135deg, #D4A373 0%, #A97A4C 100%);
+  color: #0F0F0F;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #E6BA8E 0%, #C4925F 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.btn-gold:hover::before {
+  opacity: 1;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid rgba(212, 163, 115, 0.5);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(212, 163, 115, 0.1);
+  border-color: #D4A373;
+  transform: translateY(-2px);
+}
+
+/* Floating Animations */
+@keyframes float-slow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-6deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float-1 {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-reverse 9s ease-in-out infinite;
+}
+
+/* Custom Cursor support */
+.custom-cursor-active {
+  cursor: none;
+}
+
+.custom-cursor-active a,
+.custom-cursor-active button,
+.custom-cursor-active input,
+.custom-cursor-active select,
+.custom-cursor-active textarea,
+.custom-cursor-active [role="button"] {
+  cursor: none;
+}
+
+/* Parallax Scrolling Classes */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Rounded luxury styling */
+.rounded-luxury {
+  border-radius: 20px;
+}
+
+/* Masonry Aspect Ratio utilities */
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image cover styling */
+.img-dark-overlay {
+  position: relative;
+}
+
+.img-dark-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15, 15, 15, 0.2) 0%, rgba(15, 15, 15, 0.85) 100%);
+  pointer-events: none;
+}
+
+/* Utility: fill image (replaces next/image fill) */
+.img-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
